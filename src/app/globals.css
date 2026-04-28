@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg:           oklch(7.5% 0.007 245);
+  --color-surface:      oklch(11% 0.008 245);
+  --color-surface-2:    oklch(15% 0.009 245);
+  --color-border:       oklch(22% 0.009 245);
+  --color-border-faint: oklch(14% 0.007 245);
+  --color-text:         oklch(93% 0.005 240);
+  --color-text-2:       oklch(58% 0.010 240);
+  --color-text-3:       oklch(35% 0.009 240);
+  --color-mint:         oklch(78% 0.175 160);
+  --color-mint-dim:     oklch(78% 0.175 160 / 0.10);
+  --color-violet:       oklch(14% 0.12 295);
+  --color-violet-mid:   oklch(22% 0.14 295);
+  --color-magenta:      oklch(18% 0.14 320);
+  --color-magenta-mid:  oklch(28% 0.16 320);
+
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-body:    'Barlow', system-ui, sans-serif;
+  --font-mono:    'Martian Mono', 'Courier New', monospace;
+
+  --text-scale-xs:   0.64rem;
+  --text-scale-sm:   0.8rem;
+  --text-scale-base: 1rem;
+  --text-scale-md:   1.25rem;
+  --text-scale-lg:   1.563rem;
+  --text-scale-xl:   1.953rem;
+  --text-scale-2xl:  2.441rem;
+  --text-scale-3xl:  3.052rem;
+  --text-scale-4xl:  3.815rem;
+
+  --animate-fade-up: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  html { @apply bg-bg text-text font-body; }
+  h1, h2, h3, h4, h5, h6 { @apply font-display; }
+  code, pre, kbd { @apply font-mono; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-mint text-bg font-display font-semibold px-5 py-2.5 text-scale-sm hover:opacity-90 transition-opacity cursor-pointer;
+  }
+  .btn-secondary {
+    @apply border border-mint text-mint font-display font-semibold px-5 py-2.5 text-scale-sm hover:bg-mint-dim transition-colors cursor-pointer;
+  }
+  .card {
+    @apply bg-surface border border-border p-6 hover:border-mint transition-colors duration-200;
+  }
+  .badge-verified {
+    @apply inline-flex items-center gap-1 text-mint text-scale-xs font-mono border border-mint px-2 py-0.5;
+  }
+  .label-eyebrow {
+    @apply text-mint font-mono text-scale-xs tracking-widest uppercase;
+  }
+}
