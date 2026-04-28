@@ -1,4 +1,4 @@
-interface ListingFixture {
+export interface ListingFixture {
   title: string
   slug: string
   description: string
